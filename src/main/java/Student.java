@@ -2,18 +2,18 @@
  * Created by julie on 1/7/16.
  */
 public class Student extends Person{
-    private final int klass;
+    private final Klass klass;
 
-    public Student(String name,int age,int klass) {
+    public Student(String name, int age, Klass klass) {
         super(name,age);
         this.klass = klass;
     }
 
-    public int getKlass() {
+    public Klass getKlass() {
         return klass;
     }
 
     public String introduce() {
-        return super.introduce()+" I am a Student. I am at Class "+this.getKlass()+".";
+        return super.introduce()+" I am a Student. I am at Class "+this.getKlass().getNumber()+".";
     }
 }

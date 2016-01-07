@@ -3,23 +3,35 @@
  */
 public class Teacher extends Person{
 
-    private Integer klass;
+    private Klass klass;
 
-    public Teacher(String name,int age,Integer klass){
+    public Teacher(String name,int age,Klass klass){
         super(name,age);
         this.klass=klass;
     }
 
-    public Integer getKlass() {
+    public Klass getKlass() {
         return klass;
     }
 
+    private String basicIntroduce(){
+        return super.introduce()+" I am a Teacher.";
+    }
     public String introduce(){
-        if (klass==null){
-            return super.introduce()+" I am a Teacher. I teach No Class.";
+        if (this.getKlass()==null){
+            return this.basicIntroduce()+" I teach No Class.";
         }
         else{
-            return super.introduce()+" I am a Teacher. I teach Class "+this.getKlass()+".";
+            return this.basicIntroduce()+" I teach Class "+this.getKlass().getNumber()+".";
+        }
+    }
+
+    public String introduceWith(Student student) {
+        if (this.getKlass().getNumber()==student.getKlass().getNumber()){
+            return this.basicIntroduce()+" I teach "+student.getName()+".";
+        }
+        else {
+            return this.basicIntroduce()+" I don't teach "+student.getName()+".";
         }
     }
 }

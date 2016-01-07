@@ -9,7 +9,8 @@ import static org.junit.Assert.assertThat;
 public class StudentTest {
     @Test
     public void should_introduce_with_name_age_and_klass(){
-        Student tom = new Student("Tom", 21, 2);
+        Klass klass = new Klass(2);
+        Student tom = new Student("Tom", 21, klass);
         assertThat(tom.introduce(), is("My name is Tom. I am 21 years old. I am a Student. I am at Class 2."));
     }
 }
