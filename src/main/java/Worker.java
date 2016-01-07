@@ -6,6 +6,6 @@ public class Worker extends Person{
         super(name,age);
     }
     public String introduce(){
-        return "I am a Worker. I have a job.";
+        return super.basicIntroduce()+"I am a Worker. I have a job.";
     }
 }
