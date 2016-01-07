@@ -10,6 +10,6 @@ import static org.junit.Assert.assertThat;
 public class PersonTest {
     @Test
     public void should_basic_introduce_with_name_and_age(){
-        assertThat(new Person("Tom",21).basicIntroduce(),is("My name is Tom. I am 21 years old."));
+        assertThat(new Person("Tom",21).introduce(),is("My name is Tom. I am 21 years old."));
     }
 }

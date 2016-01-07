@@ -18,7 +18,7 @@ public class Person {
         return this.age;
     }
 
-    public String basicIntroduce() {
-        return "My name is "+this.getName()+". I am "+this.getAge()+" years old. ";
+    public String introduce() {
+        return "My name is "+this.getName()+". I am "+this.getAge()+" years old.";
     }
 }
