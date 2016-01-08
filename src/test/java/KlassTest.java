@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -31,7 +32,17 @@ public class KlassTest {
         Klass klass1 = new Klass(1);
         Klass klass2 = new Klass(2);
         Student tom = new Student("001","Tom",21,klass1);
+        assertThat(klass2.getLeader(),not(tom));
         assertThat(klass2.assignLeader(tom),is("It is not one of us."));
+    }
+    @Test
+    public void should_show_the_student_is_belonged_to_klass_or_not(){
+        Klass klass1 = new Klass(1);
+        Klass klass2 = new Klass(2);
+        Student tom = new Student("001","Tom",21,klass1);
+        Student lily = new Student("002","Lily",22,klass2);
+        assertThat(klass1.isIn(tom),is(true));
+        assertThat(klass1.isIn(lily),is(false));
     }
 
 }

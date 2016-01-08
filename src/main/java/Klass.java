@@ -18,6 +18,20 @@ public class Klass {
         return leader;
     }
 
+    public String assignLeader(Student student){
+        if (this.equals(student.getKlass())){
+            this.leader=student;
+            return null;
+        }
+        else{
+            return "It is not one of us.";
+        }
+    }
+
+    public void appendMember(Student student) {
+        student.setKlass(this);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,17 +51,12 @@ public class Klass {
         return result;
     }
 
-    public String assignLeader(Student student){
+    public boolean isIn(Student student) {
         if (this.equals(student.getKlass())){
-            this.leader=student;
-            return null;
+            return true;
         }
-        else{
-            return "It is not one of us.";
+        else {
+            return false;
         }
-    }
-
-    public void appendMember(Student student) {
-        student.setKlass(this);
     }
 }

@@ -19,18 +19,18 @@ public class HelloWorldTest {
         when(helloWorld.beenCalled()).thenReturn("Leave me alone.");
 
         assertThat(helloWorld.beenCalled(), is("Leave me alone."));
-
-        String a = "1";
-        String b = new String("1");
-
-        String x = "12";
-
-        System.out.println(x.substring(0,1));
-        System.out.println(x);
-
-        System.out.println(a==b);
-        System.out.println(a.equals(b));
-        System.out.println(new Klass(1).equals(new Klass(1)));
-        System.out.println(new Klass(1)==new Klass(1));
+//
+//        String a = "1";
+//        String b = new String("1");
+//
+//        String x = "12";
+//
+//        System.out.println(x.substring(0,1));
+//        System.out.println(x);
+//
+//        System.out.println(a==b);
+//        System.out.println(a.equals(b));
+//        System.out.println(new Klass(1).equals(new Klass(1)));
+//        System.out.println(new Klass(1)==new Klass(1));
     }
 }
