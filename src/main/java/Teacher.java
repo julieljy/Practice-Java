@@ -26,8 +26,24 @@ public class Teacher extends Person{
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Teacher teacher = (Teacher) o;
+
+        return klass != null ? klass.equals(teacher.klass) : teacher.klass == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return klass != null ? klass.hashCode() : 0;
+    }
+
     public String introduceWith(Student student) {
-        if (this.getKlass().getNumber()==student.getKlass().getNumber()){
+        if (this.getKlass().equals(student.getKlass())){
             return this.basicIntroduce()+" I teach "+student.getName()+".";
         }
         else {

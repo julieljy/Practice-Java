@@ -4,7 +4,7 @@
 public class Klass {
 
     private Integer number;
-    private String leader;
+    private Student leader;
 
     public Klass(Integer number) {
         this.number=number;
@@ -14,13 +14,40 @@ public class Klass {
         return number;
     }
 
-    public String getLeader() {
+    public Student getLeader() {
         return leader;
     }
 
-    public void assignLeader(Student student){
-        this.leader=student.getName();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Klass klass = (Klass) o;
+
+        if (number != null ? !number.equals(klass.number) : klass.number != null) return false;
+        return leader != null ? leader.equals(klass.leader) : klass.leader == null;
+
     }
 
+    @Override
+    public int hashCode() {
+        int result = number != null ? number.hashCode() : 0;
+        result = 31 * result + (leader != null ? leader.hashCode() : 0);
+        return result;
+    }
 
+    public String assignLeader(Student student){
+        if (this.equals(student.getKlass())){
+            this.leader=student;
+            return null;
+        }
+        else{
+            return "It is not one of us.";
+        }
+    }
+
+    public void appendMember(Student student) {
+        student.setKlass(this);
+    }
 }
