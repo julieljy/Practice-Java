@@ -10,7 +10,14 @@ public class StudentTest {
     @Test
     public void should_introduce_with_name_age_and_klass(){
         Klass klass = new Klass(2);
-        Student tom = new Student("Tom", 21, klass);
+        Student tom = new Student("001","Tom", 21, klass);
         assertThat(tom.introduce(), is("My name is Tom. I am 21 years old. I am a Student. I am at Class 2."));
+    }
+    @Test
+    public void should_introduce_with_name_age_klass_and_leader(){
+        Klass klass = new Klass(2);
+        Student tom = new Student("001","Tom", 21, klass);
+        klass.assignLeader(tom);
+        assertThat(tom.introduce(),is("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2."));
     }
 }

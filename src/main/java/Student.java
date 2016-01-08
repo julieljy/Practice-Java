@@ -4,8 +4,8 @@
 public class Student extends Person{
     private final Klass klass;
 
-    public Student(String name, int age, Klass klass) {
-        super(name,age);
+    public Student(String id,String name, int age, Klass klass) {
+        super(id,name,age);
         this.klass = klass;
     }
 
@@ -14,6 +14,11 @@ public class Student extends Person{
     }
 
     public String introduce() {
-        return super.introduce()+" I am a Student. I am at Class "+this.getKlass().getNumber()+".";
+        if (this.getKlass().getLeader()==this.getName()){
+            return super.introduce()+" I am a Student. I am Leader of Class "+this.getKlass().getNumber()+".";
+        }
+        else {
+            return super.introduce()+" I am a Student. I am at Class "+this.getKlass().getNumber()+".";
+        }
     }
 }

@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 public class WorkerTest {
     @Test
     public void should_introduce_with_name_and_age(){
-        Worker tom = new Worker("Tom", 21);
+        Worker tom = new Worker("001","Tom", 21);
         assertThat(tom.introduce(),is("My name is Tom. I am 21 years old. I am a Worker. I have a job."));
     }
 }

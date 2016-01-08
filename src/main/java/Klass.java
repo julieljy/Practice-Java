@@ -4,6 +4,7 @@
 public class Klass {
 
     private Integer number;
+    private String leader;
 
     public Klass(Integer number) {
         this.number=number;
@@ -12,4 +13,14 @@ public class Klass {
     public Integer getNumber() {
         return number;
     }
+
+    public String getLeader() {
+        return leader;
+    }
+
+    public void assignLeader(Student student){
+        this.leader=student.getName();
+    }
+
+
 }

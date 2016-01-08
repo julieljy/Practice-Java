@@ -5,8 +5,8 @@ public class Teacher extends Person{
 
     private Klass klass;
 
-    public Teacher(String name,int age,Klass klass){
-        super(name,age);
+    public Teacher(String id,String name,int age,Klass klass){
+        super(id,name,age);
         this.klass=klass;
     }
 
