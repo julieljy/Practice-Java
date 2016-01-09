@@ -1,8 +1,11 @@
 import org.junit.Test;
 
+import java.io.PrintStream;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
@@ -33,4 +36,17 @@ public class HelloWorldTest {
 //        System.out.println(new Klass(1).equals(new Klass(1)));
 //        System.out.println(new Klass(1)==new Klass(1));
     }
+//    @Test
+//    public void hello_world_spy(){
+//        HelloWorld helloWorld = new HelloWorld();
+//        helloWorld.say(System.out);
+//
+//
+//        PrintStream fakedOut = mock(PrintStream.class);
+//
+//        helloWorld.say(fakedOut);
+//
+//        verify(fakedOut).println("aaa");
+//
+//    }
 }

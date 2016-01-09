@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -5,15 +7,21 @@ import java.util.List;
  */
 public class Teacher extends Person{
 
-    private List<Klass> klasses;
+    private List<Klass> klasses = new ArrayList<Klass>();
+    private PrintStream printer;
 
-    public Teacher(String id, String name, int age, List<Klass> klasses){
+    public Teacher(String id, String name, int age, List<Klass> klasses, PrintStream printer){
         super(id,name,age);
         this.klasses=klasses;
+        this.printer = printer;
     }
 
     public List<Klass> getKlasses() {
         return klasses;
+    }
+
+    public void setKlasses(Klass klass){
+        this.klasses.add(klass);
     }
 
     private String basicIntroduce(){
@@ -57,7 +65,7 @@ public class Teacher extends Person{
 
     public String isTeaching(Student student) {
         int check=0;
-        for (int i=0;i<klasses.size();i++){
+for (int i=0;i<klasses.size();i++){
             if (this.klasses.get(i).isIn(student)){
                 check=1;
             }
@@ -67,6 +75,14 @@ public class Teacher extends Person{
         }else{
             return "true";
         }
+    }
+
+    public void welcomeStudent(Student student){
+         this.printer.println("I am "+this.getName()+". I know "+student.getName()+" has joined Class "+student.getKlass().getNumber()+".");
+    }
+
+    public void welcomeLeader(Student student){
+        this.printer.println("I am "+this.getName()+". I know "+student.getName()+" become Leader of Class "+student.getKlass().getNumber()+".");
     }
 
 //    public String introduceWith(Student student) {
