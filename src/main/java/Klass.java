@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,12 +31,16 @@ public class Klass {
         return leader;
     }
 
-    public String assignLeader(Student student){
+    public String assignLeader(Student student,PrintStream printer){
         if (this.equals(student.getKlass())){
             this.leader=student;
             for (int i=0;i<this.teachers.size();i++){
-                this.teachers.get(i).welcomeLeader(student);
+                Inform informTeacher = new Teacher(this.getTeachers().get(i).getId(),this.getTeachers().get(i).getName(),
+                        this.getTeachers().get(i).getAge(),this.getTeachers().get(i).getKlasses(),printer);
+                informTeacher.informLeader(student);
             }
+            Inform informComputer = new Computer("the Machine",printer);
+            informComputer.informLeader(student);
             return null;
         }
         else{
@@ -43,10 +48,14 @@ public class Klass {
         }
     }
 
-    public void appendMember(Student student) {
+    public void appendMember(Student student,PrintStream printer) {
         student.setKlass(this);
+        Inform informComputer = new Computer("the Machine", printer);
+        informComputer.informStudent(student);
         for (int i=0;i<this.teachers.size();i++){
-            this.teachers.get(i).welcomeStudent(student);
+            Inform informTeacher = new Teacher(this.getTeachers().get(i).getId(),this.getTeachers().get(i).getName(),
+                    this.getTeachers().get(i).getAge(),this.getTeachers().get(i).getKlasses(),printer);
+            informTeacher.informStudent(student);
         }
     }
 

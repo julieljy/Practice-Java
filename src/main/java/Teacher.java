@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by julie on 1/7/16.
  */
-public class Teacher extends Person{
+public class Teacher extends Person implements Inform{
 
     private List<Klass> klasses = new ArrayList<Klass>();
     private PrintStream printer;
@@ -77,12 +77,20 @@ for (int i=0;i<klasses.size();i++){
         }
     }
 
-    public void welcomeStudent(Student student){
-         this.printer.println("I am "+this.getName()+". I know "+student.getName()+" has joined Class "+student.getKlass().getNumber()+".");
+//    public void welcomeStudent(Student student){
+//         this.printer.println("I am "+this.getName()+". I know "+student.getName()+" has joined Class "+student.getKlass().getNumber()+".");
+//    }
+
+//    public void welcomeLeader(Student student){
+//        this.printer.println("I am "+this.getName()+". I know "+student.getName()+" become Leader of Class "+student.getKlass().getNumber()+".");
+//    }
+
+    public void informStudent(Student student) {
+        this.printer.println( "I am "+this.getName()+". I know "+student.getName()+" has joined Class "+student.getKlass().getNumber()+".");
     }
 
-    public void welcomeLeader(Student student){
-        this.printer.println("I am "+this.getName()+". I know "+student.getName()+" become Leader of Class "+student.getKlass().getNumber()+".");
+    public void informLeader(Student student) {
+        this.printer.println( "I am "+this.getName()+". I know "+student.getName()+" become Leader of Class "+student.getKlass().getNumber()+".");
     }
 
 //    public String introduceWith(Student student) {

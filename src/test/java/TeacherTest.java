@@ -75,13 +75,9 @@ public class TeacherTest {
         Teacher tom = new Teacher("001","Tom", 21, klasses,fakedOut);
         Klass klass2 = new Klass(2,tom);
         Klass klass3 = new Klass(3,tom);
-
-        Student jerry = new Student("002","Jerry",10,klass2);
-
-        tom.welcomeStudent(jerry);
-
+        Student jerry = new Student("002","Jerry",10,null);
+        klass2.appendMember(jerry,fakedOut);
         verify(fakedOut).println("I am Tom. I know Jerry has joined Class 2.");
-
     }
     @Test
     public void should_print_leader_of_klass(){
@@ -90,7 +86,7 @@ public class TeacherTest {
         Klass klass2 = new Klass(2,tom);
         Klass klass3 = new Klass(3,tom);
         Student jerry = new Student("002","Jerry",10,klass2);
-        tom.welcomeLeader(jerry);
+        klass2.assignLeader(jerry,fakedOut);
         verify(fakedOut).println("I am Tom. I know Jerry become Leader of Class 2.");
     }
 }

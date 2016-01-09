@@ -33,7 +33,7 @@ public class KlassTest {
         Teacher tom = new Teacher("001","Tom", 21, klasses, fakedOut);
         Klass klass = new Klass(2,tom);
         Student jerry = new Student("002","Jerry",10,klass);
-        klass.assignLeader(jerry);
+        klass.assignLeader(jerry,fakedOut);
         assertThat(klass.getLeader(),is(jerry));
     }
     @Test
@@ -41,7 +41,7 @@ public class KlassTest {
         Klass klass1 = new Klass(1,null);
         Klass klass2 = new Klass(2,null);
         Student tom = new Student("001","Tom",21,klass1);
-        klass2.appendMember(tom);
+        klass2.appendMember(tom,fakedOut);
         assertThat(tom.getKlass(),is(klass2));
     }
     @Test
@@ -50,7 +50,7 @@ public class KlassTest {
         Klass klass2 = new Klass(2,null);
         Student tom = new Student("001","Tom",21,klass1);
         assertThat(klass2.getLeader(),not(tom));
-        assertThat(klass2.assignLeader(tom),is("It is not one of us."));
+        assertThat(klass2.assignLeader(tom,fakedOut),is("It is not one of us."));
     }
     @Test
     public void should_show_the_student_is_belonged_to_klass_or_not(){
